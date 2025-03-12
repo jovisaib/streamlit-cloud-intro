@@ -2,7 +2,6 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-import os
 
 # Page configuration
 st.set_page_config(page_title="CIFAR-10 Image Classifier", page_icon="🖼️")
@@ -10,17 +9,7 @@ st.set_page_config(page_title="CIFAR-10 Image Classifier", page_icon="🖼️")
 # Load the pre-trained model and cache it
 @st.cache_resource
 def load_model():
-    try:
-        # First try to load the fixed model if it exists
-        if os.path.exists('cifar10_cnn_model_fixed.h5'):
-            return tf.keras.models.load_model('cifar10_cnn_model_fixed.h5')
-        else:
-            # If fixed model doesn't exist, try the original model
-            return tf.keras.models.load_model('cifar10_cnn_model.h5')
-    except Exception as e:
-        st.error(f"Error loading model: {str(e)}")
-        st.info("Please run the fix_h5_model.py script to fix the model file.")
-        return None
+    return tf.keras.models.load_model('cifar10_cnn_model.h5')
 
 # Define CIFAR-10 class names
 class_names = [
@@ -64,32 +53,26 @@ if uploaded_file is not None:
     with col1:
         st.image(image, caption='Uploaded Image', use_column_width=True)
     
-    # Load the model
+    # Preprocess the image and make prediction
+    image_array = preprocess_image(image)
     model = load_model()
     
-    # Only proceed if model was loaded successfully
-    if model is not None:
-        # Preprocess the image and make prediction
-        image_array = preprocess_image(image)
-        
-        with st.spinner('Running prediction...'):
-            predictions = model.predict(image_array)
-        
-        predicted_class = class_names[np.argmax(predictions[0])]
-        confidence = np.max(predictions[0]) * 100
-        
-        # Display results
-        with col2:
-            st.subheader("Prediction Results")
-            st.write(f"**Prediction:** {predicted_class}")
-            st.write(f"**Confidence:** {confidence:.2f}%")
-        
-        # Display bar chart of all predictions
-        st.subheader("Confidence Levels")
-        prediction_dict = {class_names[i]: float(predictions[0][i]) for i in range(10)}
-        st.bar_chart(prediction_dict)
-    else:
-        st.error("Model could not be loaded. Please fix the model file first.")
+    with st.spinner('Running prediction...'):
+        predictions = model.predict(image_array)
+    
+    predicted_class = class_names[np.argmax(predictions[0])]
+    confidence = np.max(predictions[0]) * 100
+    
+    # Display results
+    with col2:
+        st.subheader("Prediction Results")
+        st.write(f"**Prediction:** {predicted_class}")
+        st.write(f"**Confidence:** {confidence:.2f}%")
+    
+    # Display bar chart of all predictions
+    st.subheader("Confidence Levels")
+    prediction_dict = {class_names[i]: float(predictions[0][i]) for i in range(10)}
+    st.bar_chart(prediction_dict)
 
 else:
     # Display example images if no file is uploaded
