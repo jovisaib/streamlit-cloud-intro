@@ -38,7 +38,7 @@
 ## 2. Setting up your Streamlit environment
 
 ### Prerequisites
-- Python 3.7+
+- Python
 - GitHub account
 - Git installed locally
 
@@ -164,6 +164,7 @@ __pycache__/
 *$py.class
 venv/
 streamlit-env/
+streamlit-env
 
 # Environment variables
 .env

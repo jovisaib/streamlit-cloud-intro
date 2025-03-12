@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+streamlit-env/
+streamlit-env
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
