@@ -255,11 +255,6 @@ font = "sans serif"
 - Add Python files prefixed with numbers
 - Each file becomes a separate page in navigation
 
-### Authentication
-- Use Streamlit Community Cloud's built-in authentication
-- Implement custom auth with external providers
-- Consider Streamlit Teams for enterprise-grade auth
-
 ---
 
 ## Resources
@@ -276,15 +271,5 @@ font = "sans serif"
 - [Streamlit Gallery](https://streamlit.io/gallery)
 - [Awesome Streamlit](https://github.com/MarcSkovMadsen/awesome-streamlit)
 
----
-
-## Contact and Support
-
-For more information or assistance:
-- Email: your-email@example.com
-- GitHub: github.com/your-username
-- Twitter: @your_handle
-
----
 
 *Happy Streamlit Deployment!*
