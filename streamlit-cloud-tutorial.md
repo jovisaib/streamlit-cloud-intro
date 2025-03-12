@@ -167,10 +167,11 @@ pip freeze > requirements.txt
 
 or create a minimal version:
 ```
-streamlit==1.24.0
-pandas==2.0.3
-numpy==1.24.3
-matplotlib==3.7.2
+Pillow
+streamlit
+pandas>=2.0.3
+numpy>=1.24.3
+matplotlib>=3.7.2
 ```
 
 ### .gitignore (basic)
