@@ -15,6 +15,23 @@
 
 ## 1. What is Streamlit?
 
+## What is Streamlit?
+Streamlit is a Python library that turns your Python scripts into interactive web applications. It allows you to create a website without knowing HTML, CSS, or JavaScript. You can run it locally or you can publish it on Streamlit platform.
+https://streamlit.io/
+
+## Writing your first app
+### The Main Script
+Every Streamlit app starts with a Python file (usually called `app.py` or `streamlit_app.py`). This file contains both your AI logic and your interface code. Here's a simple example:
+
+
+### How Streamlit Works
+Every time you interact with your Streamlit app (type in a textbox, move a slider, click a button), **Streamlit runs your entire script again from top to bottom. This means any variables you create will be reset!**
+
+Streamlit works in an unusual way for a webapp. Every time you do anything in a Streamlit app - click a button, type text, upload a file - Streamlit runs your entire program again from start to finish. It's like closing and reopening your jupyter notebook. All the variables are forgotten.
+
+*We will learn how to save the variables between re-runs in a few days.*
+
+
 ### Overview
 - Open-source Python library for creating web apps with minimal effort
 - No frontend experience needed (HTML, CSS, JavaScript)
