@@ -125,7 +125,6 @@ Let's break this down:
    - We calculate the confidence (probability * 100)
    - We display the prediction and confidence
    - We create a bar chart showing the probabilities for all classes
-```
 
 ### Step 7: Putting It All Together
 Let's look at the complete code for our CIFAR-10 image classifier app:
