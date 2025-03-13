@@ -169,7 +169,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png
 
 def preprocess_image(image):
     image = image.convert('RGB')
-    image = image.resize((32, 32))
+    image = image.resize((224, 224))
     image_array = np.array(image)
     image_array = image_array.astype('float32') / 255.0
     image_array = np.expand_dims(image_array, axis=0)
