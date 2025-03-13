@@ -2,6 +2,47 @@
 
 #streamlit #IronHack #deployment 
 
+## What is Streamlit?
+Streamlit is a Python library that turns your Python scripts into interactive web applications. It allows you to create a website without knowing HTML, CSS, or JavaScript. You can run it locally or you can publish it on Streamlit platform.
+https://streamlit.io/
+
+## Why Streamlit is Great for AI Apps
+- You write pure Python code
+- Your app updates automatically as users interact with it
+- It's free to host basic applications
+- You don't need to know web development
+
+## Installing Streamlit
+Using Anaconda: https://docs.streamlit.io/get-started/installation/anaconda-distribution
+Using pip: `pip install streamlit`
+
+## Writing your first app
+### The Main Script
+Every Streamlit app starts with a Python file (usually called `app.py` or `streamlit_app.py`). This file contains both your AI logic and your interface code. Here's a simple example:
+
+**Try running it on your computer!**
+1. Create new directory `my_cnn_app` (or something like that)
+2. Create an `.py` file named `app.py` 
+3. Copy into into it the code below
+```python
+import streamlit as st # importing streamlit library
+  
+st.title("Image Classifier") # this text will appear big
+```
+
+### Running Your First App
+4. Open terminal/command prompt
+5. Run your app:
+```bash
+python -m streamlit run app.py
+```
+
+### How Streamlit Works
+Every time you interact with your Streamlit app (type in a textbox, move a slider, click a button), **Streamlit runs your entire script again from top to bottom. This means any variables you create will be reset!**
+
+Streamlit works in an unusual way for a webapp. Every time you do anything in a Streamlit app - click a button, type text, upload a file - Streamlit runs your entire program again from start to finish. It's like closing and reopening your jupyter notebook. All the variables are forgotten.
+
+*We will learn how to save the variables between re-runs in a few days.*
 
 ## Building an Image Classifier App with Streamlit
 
@@ -246,10 +287,12 @@ Streamlit Cloud deploys your app directly from a GitHub repository:
 Create a file named `requirements.txt` in your repository with the required packages:
 
 ```
-streamlit==1.22.0
-tensorflow==2.12.0
-numpy==1.23.5
-pillow==9.5.0
+Pillow
+streamlit
+pandas>=2.0.3
+numpy>=1.24.3
+matplotlib>=3.7.2
+tensorflow==2.19.0
 ```
 
 The specific versions might need to be adjusted based on your environment.
