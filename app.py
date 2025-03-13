@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Data Explorer!", page_icon="📊")
 
 # Header
-st.title("Data Explorer")
+st.title("Data Explorer!!!")
 st.write("A simple app to explore your data")
 
 # Data generation
